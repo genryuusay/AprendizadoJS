@@ -35,9 +35,8 @@ async register(){
 }
 
 async userExists(){
-  const user = await LoginModel.findOne({email: this.body.email});
-
-  if(user) this.errors.push('Usuário já existe');
+  this.user = await LoginModel.findOne({email: this.body.email});
+  if(this.user) this.errors.push('Usuário já existe');
 }
 
 valida(){
